@@ -2,7 +2,7 @@
 # the below example
 
 TARGET = ChessPostions
-SRC_FILES = main.cpp
+SRC_FILES = main.cpp DisplayBoard.cpp
 
 # DO NOT EDIT BELOW HERE
 CXX = g++
@@ -28,5 +28,5 @@ clean:
 	$(DEL) $(TARGET) $(OBJECTS)
 
 # DEPENDENCIES
-Board.o: Board.cpp
-main.o: main.cpp Game.hpp
+DisplayBoard.o: DisplayBoard.cpp DisplayBoard.hpp
+main.o: main.cpp 
