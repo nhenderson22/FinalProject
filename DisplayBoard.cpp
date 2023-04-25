@@ -56,3 +56,17 @@ void DisplayBoard::show_board(){
     }
 }
 
+//Update the game board and move a piece
+void DisplayBoard::move_piece(Point start_pos, Point end_pos){
+    string currPiece = mBoard[start_pos.row][start_pos.column]; // store the current piece to move
+    mBoard[end_pos.row][end_pos.column] = currPiece;
+    mBoard[start_pos.row][start_pos.column] = " x";
+}
+
+// This is the same as move piece but using this method makes code more readable (semantic)
+void DisplayBoard::take_piece(Point start_pos, Point end_pos){
+    string currPiece = mBoard[start_pos.row][start_pos.column]; // store the current piece to move
+    mBoard[end_pos.row][end_pos.column] = currPiece;
+    mBoard[start_pos.row][start_pos.column] = " x";
+}
+
