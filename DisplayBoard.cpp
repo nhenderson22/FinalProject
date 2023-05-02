@@ -46,7 +46,7 @@ DisplayBoard::DisplayBoard(){
     mBoard[7][3] = "bk";
 }
 
-// This will display the board
+// This will display the board to the terminal 
 void DisplayBoard::show_board(){
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {

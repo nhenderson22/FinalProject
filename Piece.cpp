@@ -51,6 +51,7 @@ void Piece::setRow(const int ROW){
 // Populates the vector with the possible moves the pawn could make in a legal scenario
 void Piece::get_pawn_attacks(Board* board, vector<Point>& moveVector) const{
     vector<Point> possibleMoves;
+    // populate the vector with the possible moves based on the direction the pawn can move
     if(mColor == "White"){
         possibleMoves = {Point {mCurrPos.row + 1, mCurrPos.column},Point {mCurrPos.row + 2, mCurrPos.column},
                         Point {mCurrPos.row + 1, mCurrPos.column + 1},Point {mCurrPos.row + 1, mCurrPos.column - 1}};
@@ -69,12 +70,13 @@ void Piece::get_pawn_attacks(Board* board, vector<Point>& moveVector) const{
         if(currPoint.column > 7 || currPoint.column < 0){
             continue;
         }
-        // Now we check for the pin
+        // if they clear the checks they are possible
         moveVector.push_back(currPoint);
     }
 }
 
 //* A function that will return the vector of all possible moves a piece could make
+//* this acts as a helper function for the board class
 vector<Point> Piece::getMoves(Board* board) const{
     vector<Point> possibleMoves; // this will get returned at the end
     //* First we need to make a switch to determine what the piece iss
@@ -211,13 +213,15 @@ void Piece::get_bishop_attacks(Board* board, vector<Point>& moveVector) const {
         row--, col--;
     }
 }
-// Uses the bishop and rook functions to populate the vector
+
+// Uses the bishop and rook functions to populate the vector as a queen is just a combo of the two
 void Piece::get_queen_attacks(Board* board,vector<Point>& moveVec) const{
     get_bishop_attacks(board,moveVec);
     get_rook_attacks(board,moveVec);
 }
 // Populates the knight attacks vector
 void Piece::get_knight_attacks(Board* board, vector<Point>& moveVec) const{
+    // Populate the 8 knight moves
     vector<Point> possibleMoves = {Point {mCurrPos.row + 2,mCurrPos.column + 1},Point {mCurrPos.row + 2,mCurrPos.column - 1},
                                    Point {mCurrPos.row + 1,mCurrPos.column + 2},Point {mCurrPos.row + 1,mCurrPos.column - 2},
                                    Point {mCurrPos.row - 2,mCurrPos.column + 1},Point {mCurrPos.row - 2,mCurrPos.column - 1},
@@ -232,6 +236,7 @@ void Piece::get_knight_attacks(Board* board, vector<Point>& moveVec) const{
         if(currPoint.column > 8 || currPoint.column < 0){
             continue;
         }
+        // Check what piece is in the poistion that we watn to move to
         Piece currPiece = board->getPieceAtPosition(currPoint);
         if(currPiece.getType() != "Blank"){
             if(currPiece.getColor() != mColor){

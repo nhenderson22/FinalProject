@@ -6,8 +6,6 @@
 
 using namespace std;
 
-//TODO create a getScore function
-
 Board::Board(){
    mBlackScore = 39;
    mWhiteScore = 39;
@@ -51,14 +49,13 @@ Board::Board(){
    mBoard[7][3] = Piece(0,"King", Point {7,3},"Black");
 }
 
-//*
+//* returns the piece at the pint that is passed to it
 Piece Board::getPieceAtPosition(const Point pos) const{
-    //* Check if the position given is in range
-    //* If it is in range then we can return the peice thats there
     return mBoard[pos.row][pos.column];
 }
 
-void Board::show_legal_moves(Point pos){
+// Prints all the mvoes a could make in a legal game 
+void Board::print_legal_moves(Point pos){
     Piece currPiece = mBoard[pos.row][pos.column];
     vector<Point> moveVec = currPiece.getMoves(this); // Get the possible moves from the piece
     // Now we print ( make sure to denote if it is a capture or not)s
@@ -73,6 +70,7 @@ void Board::show_legal_moves(Point pos){
     }
 }
 
+// Used in piece movement 
 void Board::swap_piece(Point originalPos, Point newPos){
     Piece currPiece = mBoard[originalPos.row][originalPos.column];
     
@@ -84,6 +82,7 @@ void Board::swap_piece(Point originalPos, Point newPos){
 
 }
 
+//Checks for checks by getting all moves on the board and seeing if the king sqare is being attacked
 bool Board::isKingInCheck(const string COLOR){
     // Find the king's position
     Point kingPos;
@@ -117,11 +116,13 @@ bool Board::isKingInCheck(const string COLOR){
     return false; // King is not in check
 }
 
+// This is used in some of the functions for piece movement
 void Board::set_piece_at_position(Point pos,Piece newPiece){
     // set the piece at the given position to be a blank
     mBoard[pos.row][pos.column] = newPiece;
 }
 
+// loops over the board and counts up the score of all the pices on the boards
 void Board::countScore(int& whiteScore, int& blackScore) const {
     // Loop over all pieces on the board
     for (int row = 0; row < 8; row++) {

@@ -38,7 +38,7 @@ int main(){
         cin >> row;
         cout << "Piece Col: ";
         cin >> col;
-
+        //validate their choice
         if(row > 7 || row < 0){
             cout << "Out of Bounds" << endl;
             continue;
@@ -47,7 +47,7 @@ int main(){
             cout << "Out of Bounds" << endl;
             continue;
         }
-
+        // read in the choice
         int choice;
         cout << "Please pick an option:" << endl;
         cout << "1: Show the possible moves of this piece" << endl;
@@ -58,11 +58,11 @@ int main(){
         cout << "Choice: ";
         cin >> choice;
 
-
+        // grab the piece and ask them what they want to do
         currPiece = currBoard.getPieceAtPosition(Point {row,col});
-        if(choice == 1){
+        if(choice == 1){ 
             //* Here we call the show legal moves
-            currBoard.show_legal_moves(Point {row,col});
+            currBoard.print_legal_moves(Point {row,col});
         }else if(choice == 2){
             int endRow,endCol;
             //* Here we need to check if a move is legal
@@ -71,7 +71,7 @@ int main(){
             cin >> endRow;
             cout << "Col: ";
             cin >> endCol;
-            
+            // validate that the point is in bounds
             if(row > 7 || row < 0){
                 cout << "Out of Bounds" << endl;
                 continue;
@@ -80,7 +80,7 @@ int main(){
                 cout << "Out of Bounds" << endl;
                 continue;
             }
-
+            // now we can make the check
             bool legal = currPiece.isMoveLegal(Point {endRow,endCol},&currBoard);
             if(legal){
                 cout << "Move is legal" << endl;
