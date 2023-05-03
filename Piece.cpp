@@ -264,10 +264,11 @@ bool Piece::isMoveLegal(Point endPos,Board* board) const{
     // tell if a move is legal
     return legal;
 }
+
 // This funcion will allow you to move the pice to anywhere you want
 // The reason I am not checking legality is beacuase this is an analysis board
 void Piece::move(Board* board, Point endPos,fstream& outFile){
-    board->swap_piece(mCurrPos,endPos);
+    board->swap_piece(mCurrPos,endPos,this);
     // Now update our file
-    outFile << "The " << mColor << " " << mType << " moved to " << mCurrPos.row << "," << mCurrPos.column << "\n";
+    outFile << "The " << mColor << " " << mType << " moved to " << getRow() << "," << getCol() << "\n";
 }

@@ -12,7 +12,7 @@ class Board{
         int getWhiteScore() const;
         Piece getPieceAtPosition(const Point pos) const; // Takes the position in and gives you the array
         void print_legal_moves(Point);
-        void swap_piece(Point,Point);
+        void swap_piece(Point,Point,Piece*);
         bool isKingInCheck(const std::string);
         void set_piece_at_position(Point,Piece);
         void countScore(int&,int&) const;

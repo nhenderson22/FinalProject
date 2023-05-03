@@ -110,6 +110,6 @@ int main(){
             cout << "not a valid choide" << endl;
         }
     }
-    outFile.close();
+    outFile.close(); // make sure to close the ifle for best practice
     return 0;
 }

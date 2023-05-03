@@ -50,9 +50,9 @@ DisplayBoard::DisplayBoard(){
 void DisplayBoard::show_board(){
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
-            std::cout << mBoard[i][j] << " ";
+            cout << mBoard[i][j] << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 }
 

@@ -1,8 +1,11 @@
-TITLE: Noah Henderson, CSCI 200 Section A (8 am), Chess Analysis Board
+TITLE: Noah Henderson, CSCI 200 Section A (8 am), Chess Analysis Board/Move Checker
 
-PROBLEM DESCRIPTION: A chess analysis board is a board that is used to test the legality of a move and to show
-what moves a piece could potenitally make. These boards are also used to create positions to study. This Projct
-aims to make an analysis board that allows for the creation of these positions.
+PROBLEM DESCRIPTION: For this project I will create a chess analysis board. An analysis board allows you to 
+document lines of moves and save them in a standardized format. These files can be loaded to see old ones 
+that you have created. This is not a standard chess game as an analysis board is used 
+exclusively for preparation of moves in advance, and to create positions. I plan on making this board compatible with standard format 
+so that other analysis files can be viewed here too. Each file will have the ability to be named 
+and can have the file to save to specified.
 
 DOCUMENTATION: The way this program works is first it will ask you to point it to a file to write to. Once this
 has been accomplishes the main loop starts. The main loop will give the use a black chess board to manipulate.
@@ -15,16 +18,20 @@ of features added I added the feature that will check the legality of a move. Th
 to create but it proved to be something that was fun to code and made sense in the context of the analysis board.
 This board also comes with a barebones chess api that could be repurposed into other game/ program loops.
 
-1. Compile
-2. The program will prompt you for a file to write to
-3. The board will display and you will input the coordinates of a piece
-4. choose what to do with that piece from the specified options
-5. repeat until you quit
+1. Compile with the make commpand
+2. Run ./ChessPositions
+3. The program will prompt you for a file to write to specify the path to it
+4. The board will display and you will input the coordinates of a piece
+   the program will first ask you to input the row the piece is on and then the column
+5. choose what to do with that piece from the specified options
+   you will type the option you want based on what is given and the program will update the board accordingly
+6. repeat until you are satisfied and then quit the program
+   to quit you select a piece and then choose the quit option on the board then the game will be saved to the file
 
 
 If I had more time:
 - I would add two modes the analysis board as well as a genuine chess game
-    - This would be somewhat easy to implement with the methods I have already
+    - This would be somewhat easy to implement with the methods I have already as the api is already exposed
 - I would implement some graphics. As it stands the terminal was the best way for me to do what i wanted in the time we had
 
 LIST DATA STRUCTURE: I chose to use a static 2d array for my list data structure. This structure simply
@@ -48,15 +55,21 @@ TESTS:
     - If the king is in check the user will be notified. The move can still be made as it is an analysis
     board but the legal checkin functionality chekks this for us.
 
-REFLECTION: This project served as a good way for me to hone my programming skills in c++ and in general. I took
-a lot of time to learn new techniques that we did not learn in class like using auto and the for each loop. I also
-learned various ways to instatiate an variable or object and learned more about the standard library. I was also
-able to learn more techniques of how to pass around objects and variables for programs to manipulate. I think that
-this project turned out ok but I had to make sacrifices due to the time constraint. I also think that OOP has some
-major limitaions when it comes to code structure and maintainability even when using best practices that I would
-like to find some remedies to in the future. If I had to do another project I would try to look up more design
-patterns or best practices because the hard part about the coding was mainly writing something that was easy to
-read,maintain, and change. I would also like to have had more time to come up with a concept as the concept I chose
-was kind of rushed so my feature list expanded before I had finished which made the project harder to structure.
-Overall I found the project to be helpful as it allowed me to get a better feel for C++ and the software development
-lifecycele in general. It alos showed me some of the limitations of what we have been learning which is important.
+REFLECTION: Through this project, I gained a better understanding of C++ programming and software 
+development in general. I had the opportunity to explore new techniques like using auto and the for-each loop, 
+which were not covered in class. Additionally, I was able to learn various ways to instantiate objects 
+and manipulate variables, and I gained a better understanding of the standard library.
+
+However, due to time constraints, I had to make sacrifices and my project concept was rushed, 
+which made it harder to structure. In the future, I would like to take more time to come up with a 
+concept and research design patterns or best practices to create a code that is easy to read, maintain, 
+and change. I also realized that even with best practices, OOP has limitations when it comes 
+to code structure and maintainability.
+
+I also wish that we had gone over inheritance as well as solid pricipals earlier as I was already too
+deep into development to redo my project keeping those principals in mind and they would have helped
+tremendoulsy with my codes maintainability.
+
+Overall, this project was a valuable learning experience that allowed me to refine my programming 
+skills and explore new techniques. It also highlighted the importance of taking the time to 
+plan and structure a project to ensure its success.

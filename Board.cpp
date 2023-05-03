@@ -71,15 +71,13 @@ void Board::print_legal_moves(Point pos){
 }
 
 // Used in piece movement 
-void Board::swap_piece(Point originalPos, Point newPos){
-    Piece currPiece = mBoard[originalPos.row][originalPos.column];
-    
-    currPiece.setCol(newPos.column);
-    currPiece.setRow(newPos.row);
+void Board::swap_piece(Point originalPos, Point newPos, Piece* currPiece){
+    // Piece& currPiece = mBoard[originalPos.row][originalPos.column];
+    currPiece->setCol(newPos.column);
+    currPiece->setRow(newPos.row);
 
-    mBoard[newPos.row][newPos.column] = currPiece;
+    mBoard[newPos.row][newPos.column] = *currPiece;
     mBoard[originalPos.row][originalPos.column] = Piece();
-
 }
 
 //Checks for checks by getting all moves on the board and seeing if the king sqare is being attacked
